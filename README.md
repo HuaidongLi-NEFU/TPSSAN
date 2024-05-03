@@ -8,13 +8,13 @@ Code for paper:
 3、We firstly used the cutmix data augmentation mechanism to 3D cardiac medical im-age segmentation tasks, expand the dataset and improved the accuracy of segmentation.
 
 ## Usage
-Clone the repo:
-git clone 
-cd TPSSAN
-Put the data in data/2018LA_Seg_Training Set,CETUS.
+Clone the repo:  
+git clone   
+cd TPSSAN  
+Put the data in data/2018LA_Seg_Training Set,CETUS.  
 
 ## Dataset
-We trained using two datasets.
+We trained using two datasets.  
 LA dataset https://www.cardiacatlas.org/atriaseg2018-challenge/atria-seg-data/
 CETUS dataset https://humanheart-project.creatis.insa-lyon.fr/databases.html
 
