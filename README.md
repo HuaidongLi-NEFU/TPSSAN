@@ -15,7 +15,7 @@ Put the data in data/2018LA_Seg_Training Set,CETUS.
 
 ## Dataset
 We trained using two datasets.  
-LA dataset https://www.cardiacatlas.org/atriaseg2018-challenge/atria-seg-data/
+LA dataset https://www.cardiacatlas.org/atriaseg2018-challenge/atria-seg-data/  
 CETUS dataset https://humanheart-project.creatis.insa-lyon.fr/databases.html
 
 ## Training
