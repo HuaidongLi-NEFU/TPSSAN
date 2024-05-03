@@ -4,7 +4,7 @@ Code for paper:
 Our code is origin from UA-MT,URPC
 ![幻灯片2](https://github.com/HuaidongLi-NEFU/TPSSAN/assets/67506402/d22b6f54-a548-4b4c-82a6-9fe69d282b1b)
 # Innovative aspects of the work
-1.A new semi-supervised medical segmentation framework, built upon an ensemble of averagemean  teacher networks, integrating information from two perspectives medical imaging coronal and transitional to obtain complementary information.
+1.A new semi-supervised medical segmentation framework, built upon an ensemble of averagemean  teacher networks, integrating information from two perspectives medical imaging coronal and transitional to obtain complementary information./t
 2. We introduced adaptive pooling layers and CBAM modules into the upsampling layers and CBAM modules into the downsampling layers of the segmentation network, to pay attention to the cardiac region and segmentation edges.
 3、We firstly used the cutmix data augmentation mechanism to 3D cardiac medical im-age segmentation tasks, expand the dataset and improved the accuracy of segmentation.
 
