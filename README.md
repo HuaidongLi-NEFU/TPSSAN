@@ -24,6 +24,6 @@ python train.py --gpu 0 --label 4
 ### for 8 label
 python train.py --gpu 0 --label 8
 ### Test the model
-python test_3d.py --model model_name --gpu 0 --iter 6000  
+python test_3d.py  
 ## Citation   
 If you find our work is useful for you, please cite us.
