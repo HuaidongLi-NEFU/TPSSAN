@@ -381,8 +381,8 @@ class RandomCrop1(object):
         # else:
         #     return {'image': image, 'label': label}
         for i in range(0, weight.shape[2]):
-            weight[:, :, i] = self.slice_weight ** abs(i - 40)
-        weight[:,56, :] = 1
+            weight[:, :, i] = self.slice_weight ** abs(i - 41)
+        weight[:,weight.shape[1] // 2, :] = 1
         weight = weight[w1:w1 + self.output_size[0], h1:h1 + self.output_size[1], d1:d1 + self.output_size[2]]
         return {'image': image, 'label': label, 'weight': weight}
 class RandomCrop2(object):
@@ -429,7 +429,7 @@ class RandomCrop2(object):
         #     return {'image': image, 'label': label}
         for i in range(0, weight.shape[1]):
             weight[:, i, :] = self.slice_weight ** abs(i - weight.shape[1] // 2)
-        weight[:, :, 40] = 1
+        weight[:, :, 41] = 1
         weight = weight[w1:w1 + self.output_size[0], h1:h1 + self.output_size[1], d1:d1 + self.output_size[2]]
         return {'image': image, 'label': label, 'weight': weight}
 class RandomCrop3(object):
@@ -476,8 +476,8 @@ class RandomCrop3(object):
         #     return {'image': image, 'label': label}
 
         for i in range(0, weight.shape[2]):
-            weight[:, :, i] = self.slice_weight ** abs(i - 32)
-        weight[:, 86, :] = 1
+            weight[:, :, i] = self.slice_weight ** abs(i - 33)
+        weight[:, weight.shape[1] // 2, :] = 1
         weight = weight[w1:w1 + self.output_size[0], h1:h1 + self.output_size[1], d1:d1 + self.output_size[2]]
         return {'image': image, 'label': label, 'weight': weight}
 class RandomCrop4(object):
@@ -525,7 +525,7 @@ class RandomCrop4(object):
         #     return {'image': image, 'label': label}
         for i in range(0, weight.shape[1]):
             weight[:, i, :] = self.slice_weight ** abs(i - weight.shape[1] // 2)
-        weight[:, :, 32] = 1
+        weight[:, :, 33] = 1
         weight = weight[w1:w1 + self.output_size[0], h1:h1 + self.output_size[1], d1:d1 + self.output_size[2]]
         return {'image': image, 'label': label, 'weight': weight}
 class RandomRotFlip1(object):

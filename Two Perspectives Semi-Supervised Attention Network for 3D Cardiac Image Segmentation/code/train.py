@@ -15,8 +15,8 @@ from torch.utils.data import DataLoader
 from torchvision.utils import make_grid
 from utils import ramps, losses, metrics, test_patch
 from dataloaders.dataset import *
-from networks.net_factory import net_factory
-from utils.mixmatch_util import mix_module
+from networks.net_factory import net_factory_CBAP
+from utils.cutmix import cut_module
 import os
 import time
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 
     def create_model(ema=False):
         # Network definition
-        net = net_factory(net_type=args.model, in_chns=1, class_num=num_classes, mode="train")
+        net = net_factory_CBAP(net_type=args.model, in_chns=1, class_num=num_classes, mode="train")
         model = net.cuda()
         if ema:
             for param in model.parameters():
@@ -216,8 +216,8 @@ if __name__ == "__main__":
             unlabeled_volume_batch = volume_batch[args.labeled_bs:]
             X = list(zip(l_image, l_label))
             U = unlabeled_volume_batch
-            X_prime, U_prime, pseudo_label = mix_module(X, U, eval_net=m_seg2, K=2,T=0.5, alpha=0.75,
-                                                         mixup_mode='_x', aug_factor=torch.tensor(1).cuda())
+            X_prime, U_prime, pseudo_label = cut_module(X, U, eval_net=m_seg2, num_augments=2, alpha=0.75,
+                                                         mixup_modes='_x', aug_factor=torch.tensor(1).cuda())
             m_seg1.train()
             X_data = torch.cat([torch.unsqueeze(X_prime[0][0],0)],0) #  需要unsqueeze 一下
             X_label = torch.cat([torch.unsqueeze(X_prime[0][1], 0)],0)
@@ -327,8 +327,8 @@ if __name__ == "__main__":
             unlabeled_volume_batch = volume_batch[args.labeled_bs:]
             X = list(zip(l_image, l_label))
             U = unlabeled_volume_batch
-            X_prime, U_prime, pseudo_label = mix_module(X, U, eval_net=m_seg1, K=2, T=0.5, alpha=0.75,
-                                                        mixup_mode='_x', aug_factor=torch.tensor(1).cuda())
+            X_prime, U_prime, pseudo_label = cut_module(X, U, eval_net=m_seg1, num_augments=2, alpha=0.75,
+                                                        mixup_modes='_x', aug_factor=torch.tensor(1).cuda())
             m_seg2.train()
             X_data = torch.cat([torch.unsqueeze(X_prime[0][0], 0)], 0)  # 需要unsqueeze 一下
             X_label = torch.cat([torch.unsqueeze(X_prime[0][1], 0)], 0)
