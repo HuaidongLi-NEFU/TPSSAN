@@ -1,7 +1,7 @@
 # Two-Perspectives-Semi-Supervised-Attention-Network-for-3D-Cardiac-Image-Segmentation
 
 Code for paper: 
-![幻灯片2](https://github.com/HuaidongLi-NEFU/TPSSAN/assets/67506402/d22b6f54-a548-4b4c-82a6-9fe69d282b1b)
+https://github.com/HuaidongLi-NEFU/TPSSAN/blob/main/%E5%B9%BB%E7%81%AF%E7%89%873.JPG
 ## Innovative aspects of the work
 1.A new semi-supervised medical segmentation framework, built upon an ensemble of averagemean  teacher networks, integrating information from two perspectives medical imaging coronal and transitional to obtain complementary information.  
 2. We introduced adaptive pooling layers and CBAM modules into the upsampling layers and CBAM modules into the downsampling layers of the segmentation network, to pay attention to the cardiac region and segmentation edges.  
